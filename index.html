@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>תרגול ערבית – שאלות אמריקאיות</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E6F0EC; --surface:#FFFFFF; --ink:#16303A; --muted:#55707A;
+  --accent:#E2A72E; --accent-ink:#2A1D00; --good:#22795A; --good-bg:#DDF2E8;
+  --bad:#B8443A; --bad-bg:#F8E1DE; --line:#C9DAD3; --opt:#F3F8F6;
+  color-scheme: light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1E22; --surface:#182C31; --ink:#E8F1EE; --muted:#9BB3B0;
+    --accent:#F0B847; --accent-ink:#241800; --good:#5CC79A; --good-bg:#16382C;
+    --bad:#F08A7E; --bad-bg:#3B1E1B; --line:#2B454B; --opt:#1F363C; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1E22; --surface:#182C31; --ink:#E8F1EE; --muted:#9BB3B0;
+  --accent:#F0B847; --accent-ink:#241800; --good:#5CC79A; --good-bg:#16382C;
+  --bad:#F08A7E; --bad-bg:#3B1E1B; --line:#2B454B; --opt:#1F363C; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Rubik",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.5}
+.wrap{max-width:520px;margin:0 auto;padding:20px 18px 40px}
+h1{font-family:"Secular One","Rubik",system-ui,sans-serif;font-weight:400;font-size:1.7rem;margin:6px 0 4px}
+.sub{color:var(--muted);margin:0 0 20px}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:8px}
+.bar>i{display:block;height:100%;width:0;background:var(--good);transition:width .3s}
+.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.95rem;margin-bottom:16px}
+.card{background:var(--surface);border-radius:22px;padding:24px 18px 20px;border:2px solid var(--line)}
+.dir{color:var(--muted);font-size:.95rem;margin:0 0 6px}
+.again{display:inline-block;background:var(--bad-bg);color:var(--bad);border-radius:99px;padding:2px 10px;font-size:.85rem;margin-inline-start:6px}
+.word{font-family:"Secular One","Rubik",system-ui,sans-serif;font-size:2.4rem;line-height:1.2;margin:0 0 20px;text-align:center}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;font-size:1.2rem;text-align:right;padding:14px 16px;border-radius:14px;border:2px solid var(--line);background:var(--opt);color:var(--ink);cursor:pointer;display:flex;gap:12px;align-items:center}
+.opt .l{flex:none;width:28px;height:28px;border-radius:50%;background:var(--line);display:grid;place-items:center;font-size:.9rem;font-weight:700}
+.opt:focus-visible,button:focus-visible,label:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.opt.right{border-color:var(--good);background:var(--good-bg)}
+.opt.right .l{background:var(--good);color:var(--surface)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{background:var(--bad);color:var(--surface)}
+.opt:disabled{cursor:default}
+.opt:disabled:not(.right):not(.wrong){opacity:.55}
+button{font:inherit;font-weight:500;border:0;border-radius:14px;padding:14px 16px;cursor:pointer}
+.primary{background:var(--accent);color:var(--accent-ink);width:100%}
+.ghost{background:transparent;color:var(--muted);border:2px solid var(--line);width:100%}
+.fb{margin-top:16px;border-radius:14px;padding:12px 14px;display:none}
+.fb.show{display:block}
+.fb.good{background:var(--good-bg);color:var(--good)}
+.fb.bad{background:var(--bad-bg);color:var(--bad)}
+.row{margin-top:14px}
+.modes{display:grid;gap:8px;margin:4px 0 16px}
+.modes label{display:flex;align-items:center;gap:10px;padding:12px 14px;border:2px solid var(--line);border-radius:14px;cursor:pointer}
+.modes input{accent-color:var(--accent);width:20px;height:20px}
+.big{font-family:"Secular One","Rubik",system-ui,sans-serif;font-size:3.2rem;text-align:center;margin:4px 0}
+.list{list-style:none;padding:0;margin:16px 0 0}
+.list li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.list li span:last-child{font-weight:500}
+.note{color:var(--muted);font-size:.92rem;margin:12px 0 0}
+.reward{background:var(--surface);border:2px solid var(--accent);border-radius:22px;padding:18px;margin-bottom:16px;text-align:center}
+.reward .rt{font-family:"Secular One","Rubik",system-ui,sans-serif;font-size:1.3rem;margin:0 0 10px}
+.slots{display:flex;justify-content:center;gap:14px;margin-bottom:10px}
+.slot{width:58px;height:58px;border-radius:50%;border:3px dashed var(--line);display:grid;place-items:center;font-size:1.9rem}
+.slot.on{border:3px solid var(--accent);background:var(--opt);animation:pop .5s ease}
+.reward .rs{margin:0;color:var(--muted)}
+.reward.won{background:var(--good-bg);border-color:var(--good)}
+.reward.won .rs{color:var(--good);font-weight:700;font-size:1.1rem}
+.win{border-radius:14px;padding:14px;margin-top:14px;text-align:center;font-weight:500}
+.win.good{background:var(--good-bg);color:var(--good)}
+.win.bad{background:var(--opt);color:var(--muted)}
+.reset{background:none;border:0;color:var(--muted);text-decoration:underline;font-size:.85rem;padding:8px 0 0;width:auto}
+@keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
+.hidden{display:none!important}
+@media (prefers-reduced-motion: reduce){.bar>i{transition:none}.slot.on{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>ברכות ומילות נימוס</h1>
+  <p class="sub">שאלות אמריקאיות בשיטת חזרה מרווחת</p>
+
+  <div class="reward" id="reward">
+    <p class="rt">🍣 אתגר הסושי</p>
+    <div class="slots" id="slots"></div>
+    <p class="rs" id="rewardText"></p>
+    <button class="reset hidden" id="resetReward">איפוס האתגר</button>
+  </div>
+
+  <section id="start" class="card">
+    <p style="margin:0 0 12px">מילה שעניתם עליה נכון יוצאת מהתרגול. מילה שטעיתם בה תחזור אחרי כמה שאלות, ושוב מאוחר יותר, עד שתענו עליה נכון פעמיים ברצף.</p>
+    <p class="dir">כיוון התרגול</p>
+    <div class="modes">
+      <label><input type="radio" name="mode" value="mix" checked> מעורב – שני הכיוונים</label>
+      <label><input type="radio" name="mode" value="he"> עברית ← ערבית (בתעתיק)</label>
+      <label><input type="radio" name="mode" value="ar"> ערבית (בתעתיק) ← עברית</label>
+    </div>
+    <button class="primary" id="go">התחלת התרגול</button>
+    <p class="note" id="history"></p>
+  </section>
+
+  <section id="quiz" class="hidden">
+    <div class="bar"><i id="prog"></i></div>
+    <div class="meta"><span id="learned"></span><span id="asked"></span></div>
+    <div class="card">
+      <p class="dir"><span id="dir"></span><span class="again hidden" id="againTag">חוזרת</span></p>
+      <p class="word" id="word"></p>
+      <div class="opts" id="opts"></div>
+      <div class="fb" id="fb"></div>
+      <div class="row hidden" id="nextRow"><button class="primary" id="next">הבא</button></div>
+    </div>
+    <div class="row"><button class="ghost" id="quit">סיום התרגול</button></div>
+  </section>
+
+  <section id="end" class="card hidden">
+    <p class="dir">סיימתם!</p>
+    <p class="big" id="final"></p>
+    <p id="endMsg" style="text-align:center;margin:0"></p>
+    <div class="win hidden" id="win"></div>
+    <ul class="list" id="hard"></ul>
+    <div class="row"><button class="primary" id="again">תרגול חדש</button></div>
+  </section>
+</div>
+
+<script>
+const WORDS = [
+  {he:"שלום", tr:"מַרְחַבָּא"},
+  {he:"בוקר טוב", tr:"צַבַּאח אִלְחֵ'יר"},
+  {he:"בוקר אור", tr:"צַבַּאח אִלנּוּר"},
+  {he:"ערב טוב", tr:"מַסַא אִלְחֵ'יר"},
+  {he:"ערב אור", tr:"מַסַא אִלנּוּר"},
+  {he:"מה שלומך?", tr:"כֵּיף חַאלַכּ?"},
+  {he:"מזל טוב", tr:"מַבְּרוּכּ"},
+  {he:"להתראות", tr:"מַע אִלסַּלַאמֶה"},
+  {he:"יישר כוח", tr:"יַעְטִיכּ אִלְעַאפְיֶה"},
+  {he:"כל הכבוד", tr:"כֻּל אִלְאִחְתִרַאם"},
+  {he:"חג שמח", tr:"עִיד סַעִיד"},
+  {he:"שלום עליכם", tr:"אִלסַּלַאמוּ עַלֵיכֻּם"},
+  {he:"יום הולדת שמח", tr:"עִיד מִילַאד סַעִיד"},
+  {he:"תודה", tr:"שֻׁכְּרַן"},
+  {he:"בבקשה", tr:"מִן פַדְלַכּ"},
+  {he:"סליחה", tr:"אַאסֶף"},
+  {he:"ברוך הבא / ברוכים הבאים", tr:"אַהְלַן וּסַהְלַן"},
+  {he:"לילה טוב", tr:"תִצְבַּח עַלַא חֵ'יר"},
+  {he:"בתיאבון", tr:"צַחְתֵין"},
+  {he:"בהצלחה", tr:"בִּאלתַּוְפִיק"},
+  {he:"תודה רבה", tr:"שֻׁכְּרַן גַ'זִילַן"}
+];
+
+const NEED = 2;          // correct answers in a row needed after a mistake
+const GAP_WRONG = 3;     // a missed card comes back after this many questions
+const GAP_RIGHT = 7;     // ...and after a correct retry, comes back again later
+const KEY = "arabic-srs-v1";
+const RKEY = "arabic-sushi-v1";
+const GOAL = 3;
+let currentMode = "mix", quitEarly = false;
+function loadReward(){ try{ return JSON.parse(localStorage.getItem(RKEY)) || {perfect:0}; }catch(e){ return {perfect:0}; } }
+function saveReward(r){ try{ localStorage.setItem(RKEY, JSON.stringify(r)); }catch(e){} }
+let reward = loadReward();
+function renderReward(){
+  const n = Math.min(reward.perfect, GOAL);
+  const s = document.getElementById("slots"); s.innerHTML = "";
+  for(let i=0;i<GOAL;i++){ const d=document.createElement("div"); d.className="slot"+(i<n?" on":""); d.textContent = i<n ? "🍣" : ""; s.appendChild(d); }
+  const box = document.getElementById("reward"), t = document.getElementById("rewardText");
+  box.classList.toggle("won", n>=GOAL);
+  document.getElementById("resetReward").classList.toggle("hidden", n===0);
+  if(n>=GOAL) t.textContent = "🎉 זכית בארוחת סושי בג'פאניקה! 🎉";
+  else if(n===0) t.textContent = "השלימי 3 פעמים את התרגול המעורב (כל 42 השאלות) בלי אף טעות, ותזכי בארוחת סושי בג'פאניקה!";
+  else t.textContent = "כל הכבוד! עוד " + (GOAL-n) + (GOAL-n===1 ? " פעם אחת" : " פעמים") + " בלי טעויות בתרגול המעורב, והסושי שלך.";
+}
+
+const $ = id => document.getElementById(id);
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } }
+function save(d){ try{ localStorage.setItem(KEY, JSON.stringify(d)); }catch(e){} }
+
+let stats = load();            // misses per card across sessions
+let queue=[], cards=[], asked=0, firstTry=0, answered=false, current=null, sessionMiss={};
+
+function cardId(c){ return c.w + ":" + c.d; }
+
+function begin(){
+  const mode = document.querySelector('input[name="mode"]:checked').value;
+  currentMode = mode; quitEarly = false;
+  $("reward").classList.add("hidden");
+  const dirs = mode==="mix" ? ["he","ar"] : [mode];
+  cards = [];
+  WORDS.forEach((_,w)=>dirs.forEach(d=>cards.push({w, d, streak:0, missed:false, done:false})));
+  // words missed in earlier sessions go first
+  queue = shuffle(cards.slice()).sort((a,b)=>((stats[cardId(b)]||0)>0) - ((stats[cardId(a)]||0)>0));
+  if(mode==="mix") spreadPairs();
+  asked=0; firstTry=0; sessionMiss={};
+  $("start").classList.add("hidden"); $("end").classList.add("hidden"); $("quiz").classList.remove("hidden");
+  show();
+}
+// keep the two directions of the same word from appearing back to back
+function spreadPairs(){
+  for(let i=1;i<queue.length;i++){
+    if(queue[i].w===queue[i-1].w){
+      const j = queue.findIndex((c,k)=>k>i+1 && c.w!==queue[i].w);
+      if(j>0){ [queue[i],queue[j]]=[queue[j],queue[i]]; }
+    }
+  }
+}
+function optionsFor(c){
+  const field = c.d==="he" ? "tr" : "he";
+  const correct = WORDS[c.w][field];
+  const others = shuffle(WORDS.map((w,i)=>i).filter(i=>i!==c.w)).slice(0,3).map(i=>WORDS[i][field]);
+  return shuffle([correct, ...others]);
+}
+function show(){
+  current = queue.shift(); answered=false;
+  const w = WORDS[current.w];
+  $("dir").textContent = current.d==="he" ? "איך אומרים בערבית?" : "מה הפירוש בעברית?";
+  $("againTag").classList.toggle("hidden", !current.missed);
+  $("word").textContent = current.d==="he" ? w.he : w.tr;
+  const box=$("opts"); box.innerHTML="";
+  optionsFor(current).forEach((txt,i)=>{
+    const b=document.createElement("button");
+    b.className="opt";
+    b.innerHTML='<span class="l"></span><span class="x"></span>';
+    b.querySelector(".l").textContent="אבגד"[i];
+    b.querySelector(".x").textContent=txt;
+    b.dataset.v=txt;
+    b.onclick=()=>choose(b);
+    box.appendChild(b);
+  });
+  $("fb").className="fb"; $("nextRow").classList.add("hidden");
+  updateMeta();
+}
+function updateMeta(){
+  const done = cards.filter(c=>c.done).length;
+  $("learned").textContent = "נלמדו " + done + " מתוך " + cards.length;
+  $("asked").textContent = "שאלות: " + asked;
+  $("prog").style.width = (done/cards.length*100) + "%";
+}
+function insertAt(card, gap){
+  queue.splice(Math.min(gap, queue.length), 0, card);
+}
+function choose(btn){
+  if(answered) return; answered=true; asked++;
+  const w = WORDS[current.w];
+  const correct = current.d==="he" ? w.tr : w.he;
+  const ok = btn.dataset.v===correct;
+  [...$("opts").children].forEach(b=>{ b.disabled=true; if(b.dataset.v===correct) b.classList.add("right"); });
+  const fb=$("fb"), id=cardId(current);
+  if(ok){
+    if(!current.missed){ current.done=true; firstTry++; stats[id]=Math.max(0,(stats[id]||0)-1); }
+    else{
+      current.streak++;
+      if(current.streak>=NEED){ current.done=true; }
+      else insertAt(current, GAP_RIGHT);
+    }
+    fb.className="fb show good";
+    fb.textContent = current.done ? "נכון! 🎉" : "נכון! המילה תחזור עוד פעם אחת בהמשך.";
+  } else {
+    btn.classList.add("wrong");
+    current.missed=true; current.streak=0;
+    sessionMiss[current.w]=true;
+    stats[id]=(stats[id]||0)+1;
+    insertAt(current, GAP_WRONG);
+    fb.className="fb show bad";
+    fb.textContent = w.he + " = " + w.tr + ". המילה תחזור עוד מעט.";
+  }
+  save(stats);
+  updateMeta();
+  $("nextRow").classList.remove("hidden");
+  $("next").focus({preventScroll:true});
+}
+function next(){ if(queue.length) show(); else finish(); }
+function finish(){
+  $("quiz").classList.add("hidden"); $("end").classList.remove("hidden");
+  const done = cards.filter(c=>c.done).length;
+  $("final").textContent = firstTry + "/" + cards.length;
+  const hard = Object.keys(sessionMiss).map(Number);
+  $("endMsg").textContent = done<cards.length
+    ? "עניתם נכון מהפעם הראשונה על " + firstTry + " שאלות. נשארו " + (cards.length-done) + " שאלות שעוד לא נלמדו."
+    : hard.length ? "עניתם נכון מהפעם הראשונה על " + firstTry + " שאלות. המילים שהיה צריך לחזור עליהן:" : "כל התשובות נכונות מהפעם הראשונה. אתם מוכנים למבחן!";
+  const ul=$("hard"); ul.innerHTML="";
+  hard.forEach(i=>{ const li=document.createElement("li"); li.innerHTML="<span></span><span></span>"; li.children[0].textContent=WORDS[i].he; li.children[1].textContent=WORDS[i].tr; ul.appendChild(li); });
+  const win = $("win");
+  const perfect = currentMode==="mix" && !quitEarly && done===cards.length && firstTry===cards.length;
+  if(perfect && reward.perfect < GOAL){
+    reward.perfect++; saveReward(reward);
+    win.className = "win good";
+    win.textContent = reward.perfect>=GOAL ? "🍣🍣🍣 השלמת את האתגר! זכית בארוחת סושי בג'פאניקה! 🎉" : "🍣 תרגול מושלם! קיבלת סושי " + reward.perfect + " מתוך " + GOAL + ".";
+  } else if(currentMode==="mix" && reward.perfect < GOAL){
+    win.className = "win bad";
+    win.textContent = quitEarly || done<cards.length ? "כדי שייספר לאתגר הסושי צריך לסיים את כל השאלות." : "הפעם היו טעויות, אז זה לא נספר לאתגר הסושי. את ממש קרובה, נסי שוב!";
+  } else if(currentMode!=="mix" && reward.perfect < GOAL){
+    win.className = "win bad";
+    win.textContent = "לאתגר הסושי נספר רק התרגול המעורב (שני הכיוונים).";
+  } else win.className = "win hidden";
+  renderReward();
+  $("reward").classList.remove("hidden");
+  showHistory();
+}
+function showHistory(){
+  const n = new Set(Object.keys(stats).filter(k=>stats[k]>0).map(k=>k.split(":")[0])).size;
+  $("history").textContent = n ? "מתרגולים קודמים: " + n + " מילים שעוד צריך לחזק. הן יופיעו ראשונות." : "";
+}
+
+$("go").onclick = begin;
+$("again").onclick = () => { $("end").classList.add("hidden"); $("start").classList.remove("hidden"); };
+$("next").onclick = next;
+$("quit").onclick = () => { quitEarly = true; finish(); };
+$("resetReward").onclick = () => { if(confirm("לאפס את אתגר הסושי ולהתחיל מאפס?")){ reward = {perfect:0}; saveReward(reward); renderReward(); } };
+renderReward();
+showHistory();
+</script>
+</body>
+</html>
